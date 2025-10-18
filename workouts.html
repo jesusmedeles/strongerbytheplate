@@ -1,91 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Workouts | Stronger by the Plate</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 
   <!-- jQuery + jQuery UI -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
 </head>
-
 <body>
-  <!-- Header -->
   <header>
     <div class="header-container">
       <h1>Stronger by the Plate</h1>
-      <img src="images/logo.png" alt="Stronger by the Plate Logo" class="site-logo">
+      <img src="images/logo.png" alt="Stronger by the Plate Logo" class="site-logo" />
     </div>
-    <nav>
+    <nav aria-label="Main">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="nutritional-foods.html">Nutritional Foods</a>
-      <a href="workouts.html">Workouts</a>
+      <a href="workouts.html" class="active">Workouts</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Main Content -->
   <main>
-    <section>
+    <section class="card">
       <h2>Home-Friendly and Gym-Based Exercises</h2>
       <p>Custom workouts for different age groups and goals. Includes video links and beginner plans.</p>
     </section>
   </main>
 
-  <!-- Workout Videos -->
-  <section class="workout-videos">
+  <section class="workout-videos card">
     <h2>Watch & Move: Guided Workouts 🎥</h2>
 
     <div class="video-wrapper">
       <h3>10-Minute Beginner Full Body Workout</h3>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/rYehSR0_M0E"
-        title="10-Minute Beginner Full Body Workout" frameborder="0" allowfullscreen></iframe>
+        title="10-Minute Beginner Full Body Workout" loading="lazy" allowfullscreen></iframe>
     </div>
 
     <div class="video-wrapper">
       <h3>Quick Cardio for Energy</h3>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/965Fwq2aVIo"
-        title="Quick Cardio Workout" frameborder="0" allowfullscreen></iframe>
+        title="Quick Cardio Workout" loading="lazy" allowfullscreen></iframe>
     </div>
 
     <div class="video-wrapper">
       <h3>Stretch and Cool Down Routine</h3>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/USzSlDUyMK0"
-        title="Stretch and Cool Down" frameborder="0" allowfullscreen></iframe>
+        title="Stretch and Cool Down" loading="lazy" allowfullscreen></iframe>
     </div>
   </section>
 
-  <!-- jQuery UI Accordion Section -->
-  <section id="nutrition-facts">
+  <section id="nutrition-facts" class="card">
     <h2>Nutrition Quick Facts 🍎</h2>
-
     <div id="accordion">
       <h3>Plant-Based Benefits</h3>
       <div><p>Plant-based diets support heart health and longevity.</p></div>
-
       <h3>Protein Power</h3>
       <div><p>Legumes, nuts, and tofu are excellent protein sources.</p></div>
-
       <h3>Hydration Tips</h3>
       <div><p>Drinking enough water daily boosts energy and focus.</p></div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 Stronger by the Plate</p>
   </footer>
 
-  <!-- Activate Accordion -->
   <script>
-    $(function() {
-      $("#accordion").accordion({
-        collapsible: true,
-        heightStyle: "content"
-      });
+    $(function () {
+      $("#accordion").accordion({ collapsible: true, heightStyle: "content" });
     });
   </script>
 </body>
