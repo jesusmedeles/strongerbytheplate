@@ -228,3 +228,22 @@ footer { background-color: #333; color: white; text-align: center; padding: 1em;
   header h1 { font-size: 1.5em; }
   .video iframe { height: 240px; }
 }
+/* Tablet polish */
+@media (max-width: 1024px) {
+  nav { gap: 8px; }
+  .site-logo { height: 84px; }
+  .mission-item { padding: 16px; }
+}
+
+/* Mobile polish */
+@media (max-width: 480px) {
+  nav a { padding: 6px 10px; }
+  .mission-flex { padding: 16px; gap: 14px; }
+  .card { padding: 16px; }
+  table { font-size: 0.95rem; }
+}
+
+/* Large desktop (keeps content comfy on wide screens) */
+@media (min-width: 1200px) {
+  main { max-width: 1200px; }
+}
