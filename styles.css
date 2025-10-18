@@ -134,3 +134,15 @@ footer { background-color: #333; color: white; text-align: center; padding: 1em;
   header h1 { font-size: 1.5em; }
   .video iframe { height: 240px; }
 }
+/* Centered bottom audio block */
+.center-audio { 
+  max-width: 800px; 
+  margin: 24px auto; 
+  text-align: center; 
+}
+.center-audio audio { 
+  display: block; 
+  margin: 8px auto 0; 
+  width: 100%; 
+  max-width: 520px; 
+}
