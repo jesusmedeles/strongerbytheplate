@@ -126,43 +126,98 @@
 
   <!-- Motivation API -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const btn = document.getElementById('motivateBtn');
-      const out = document.getElementById('motivationText');
-      const statusEl = document.getElementById('motivationStatus');
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('motivateBtn');
+    const out = document.getElementById('motivationText');
+    const statusEl = document.getElementById('motivationStatus');
 
-      async function getQuote() {
-        if (!btn) return;
-        btn.disabled = true;
-        statusEl.textContent = 'Fetching…';
-        try {
-          const url = `https://api.quotable.io/random?tags=inspirational|life|success&cb=${Date.now()}`;
-          const res = await fetch(url, { headers: { 'Accept': 'application/json' }, cache: 'no-store' });
-          if (!res.ok) throw new Error('HTTP ' + res.status);
-          const data = await res.json();
-          const quote = data?.content || 'Keep going—you’ve got this!';
-          const author = data?.author ? ` — ${data.author}` : '';
-          out.textContent = `“${quote}”${author}`;
-          statusEl.textContent = 'Success';
-        } catch (e) {
-          console.error(e);
-          out.textContent = 'Sorry—couldn’t fetch a quote. Try again.';
-          statusEl.textContent = 'Error';
-        } finally {
-          btn.disabled = false;
+    // Local fallback quotes (always works even if the internet blocks APIs)
+    const localQuotes = [
+      ["Small steps add up.", "Unknown"],
+      ["You don’t have to be extreme—just consistent.", "Unknown"],
+      ["Action is the antidote to doubt.", "Joan Baez"],
+      ["Do something today your future self will thank you for.", "Sean Patrick Flanery"],
+      ["Fall seven times, stand up eight.", "Japanese Proverb"],
+      ["Discipline is choosing what you want most over what you want now.", "Unknown"],
+    ];
+
+    async function fetchQuotableV1() {
+      const url = `https://api.quotable.io/random?tags=inspirational|life|success&cb=${Date.now()}`;
+      const res = await fetch(url, {
+        headers: { 'Accept': 'application/json' },
+        cache: 'no-store',
+        mode: 'cors',
+        referrerPolicy: 'no-referrer'
+      });
+      if (!res.ok) throw new Error('Quotable v1 HTTP ' + res.status);
+      const d = await res.json();
+      return { text: d.content, author: d.author || 'Unknown' };
+    }
+
+    async function fetchQuotableV2() {
+      const url = `https://api.quotable.io/quotes/random?limit=1&tags=inspirational|life|success&cb=${Date.now()}`;
+      const res = await fetch(url, {
+        headers: { 'Accept': 'application/json' },
+        cache: 'no-store',
+        mode: 'cors',
+        referrerPolicy: 'no-referrer'
+      });
+      if (!res.ok) throw new Error('Quotable v2 HTTP ' + res.status);
+      const arr = await res.json();
+      const d = Array.isArray(arr) && arr[0] ? arr[0] : null;
+      if (!d) throw new Error('Quotable v2 bad payload');
+      return { text: d.content, author: d.author || 'Unknown' };
+    }
+
+    async function fetchZenQuotes() {
+      const url = `https://zenquotes.io/api/random?cb=${Date.now()}`;
+      const res = await fetch(url, { cache: 'no-store', mode: 'cors', referrerPolicy: 'no-referrer' });
+      if (!res.ok) throw new Error('ZenQuotes HTTP ' + res.status);
+      const arr = await res.json();
+      const d = Array.isArray(arr) && arr[0] ? arr[0] : null;
+      if (!d) throw new Error('ZenQuotes bad payload');
+      return { text: d.q, author: d.a || 'Unknown' };
+    }
+
+    async function fetchTypeFit() {
+      const res = await fetch('https://type.fit/api/quotes', { cache: 'no-store', mode: 'cors', referrerPolicy: 'no-referrer' });
+      if (!res.ok) throw new Error('type.fit HTTP ' + res.status);
+      const arr = await res.json();
+      if (!Array.isArray(arr) || !arr.length) throw new Error('type.fit bad payload');
+      const pick = arr[Math.floor(Math.random() * arr.length)];
+      return { text: pick.text, author: pick.author || 'Unknown' };
+    }
+
+    function localFallback() {
+      const [t, a] = localQuotes[Math.floor(Math.random() * localQuotes.length)];
+      return { text: t, author: a };
+    }
+
+    async function getQuote() {
+      if (!btn) return;
+      btn.disabled = true;
+      statusEl.textContent = 'Fetching…';
+      try {
+        // Try providers in order; the first that works wins.
+        const providers = [fetchQuotableV1, fetchQuotableV2, fetchZenQuotes, fetchTypeFit];
+        let result = null, lastErr = null;
+        for (const fn of providers) {
+          try { result = await fn(); break; }
+          catch (e) { lastErr = e; }
         }
+        if (!result) result = localFallback();
+
+        out.textContent = `“${result.text}” — ${result.author}`;
+        statusEl.textContent = 'Success';
+      } catch (e) {
+        console.error(e);
+        out.textContent = 'Sorry—couldn’t fetch a quote. Try again.';
+        statusEl.textContent = 'Error';
+      } finally {
+        btn.disabled = false;
       }
+    }
 
-      if (btn) btn.addEventListener('click', getQuote);
-    });
-  </script>
-
-  <!-- Gentle autoplay helper -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const aud = document.getElementById('welcomeAudio');
-      aud?.play?.().catch(()=>{});
-    });
-  </script>
-</body>
-</html>
+    if (btn) btn.addEventListener('click', getQuote);
+  });
+</script>
