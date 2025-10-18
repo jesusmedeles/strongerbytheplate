@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Stronger by the Plate</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header + Navigation -->
+  <header>
+    <div class="header-container">
+      <h1>Stronger by the Plate</h1>
+      <img src="images/logo.png" alt="Stronger by the Plate Logo" class="site-logo">
+    </div>
+ <nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="nutritional-foods.html">Nutrit ional Foods</a>
+  <a href="workouts.html">Workouts</a>
+  <a href="contact.html">Contact</a>
+</nav>
+  </header>
+
+  <!-- About Page Content -->
+  <main>
+    <!-- Mission Section -->
+    <section class="mission">
+      <h2>About Stronger by the Plate</h2>
+      <p><strong>Stronger by the Plate</strong> is more than just a website — it’s a wellness movement built around the idea that the path to a long, healthy life begins with what’s on your plate.</p>
+
+      <h3>Our Mission</h3>
+      <p>Our mission is to empower individuals of all ages to take control of their health by making sustainable, informed choices about food and fitness. We believe small daily actions, like preparing a wholesome meal or taking a walk with friends, can have a powerful impact on overall well-being.</p>
+    </section>
+
+<!-- ✅ User Persona Section -->
+<section class="user-persona">
+  <h3>Meet Our User Persona</h3>
+  <div class="persona-box">
+    <!-- Image -->
+    <img src="images/maria_userpersona.jpg" alt="Maria Gomez - User Persona" class="persona-img">
+
+    <!-- Info -->
+    <div class="persona-info">
+      <h4>Maria Gomez, 42</h4>
+      <p><strong>Occupation:</strong> Teacher</p>
+      <p><strong>Location:</strong> Austin, TX</p>
+
+      <h4>Bio</h4>
+      <p>Maria is a busy teacher and mother of two who wants to live healthier. She's looking for simple nutrition tips and beginner-friendly workouts she can do at home.</p>
+
+      <h4>🥗 Goals</h4>
+      <ul>
+        <li>Eat more plant-based meals</li>
+        <li>Find easy, quick workouts</li>
+        <li>Improve overall energy</li>
+      </ul>
+
+      <h4>⚡ Frustrations</h4>
+      <ul>
+        <li>Limited free time</li>
+        <li>Confused by conflicting nutrition info</li>
+        <li>Doesn't want fad diets</li>
+      </ul>
+
+      <h4>💪 Motivations</h4>
+      <ul>
+        <li>Be healthy for her kids</li>
+        <li>Boost energy and focus</li>
+        <li>Prevent long-term health issues</li>
+      </ul>
+    </div>
+  </div>
+</section>
+    <!-- Beliefs & Promise Section -->
+    <section class="beliefs">
+      <h3>What We Believe</h3>
+      <ul>
+        <li><strong>Plant-Forward Eating:</strong> Most of your plate should be vegetables, fruits, legumes, and whole grains.</li>
+        <li><strong>Mindful Movement:</strong> Consistent, enjoyable physical activity that fits your lifestyle.</li>
+        <li><strong>Community Connection:</strong> Wellness isn’t just physical — social bonds are essential.</li>
+        <li><strong>Accessible Health:</strong> Everyone deserves access to tools that help them thrive.</li>
+      </ul>
+
+      <h3>Who We Serve</h3>
+      <p>Students, parents, retirees, athletes — Stronger by the Plate is here for anyone seeking better health.</p>
+
+      <h3>Our Promise</h3>
+      <p>We aim to be a trustworthy source of wellness knowledge that prioritizes balance, not extremes. We celebrate progress, not perfection — and we’re here to help you every step of the way.</p>
+
+      <img src="images/foodcommunityplanview.jpg" alt="Healthy food and people together" style="max-width:100%; border-radius: 10px; margin-top: 20px;">
+    </section>
+  </main>
+
+  <!-- Canvas Shape -->
+<section class="canvas-art">
+  <h2>Your Heart in Action ❤️</h2>
+  <canvas id="heartCanvas" width="200" height="200"></canvas>
+</section>
+
+<script>
+  const canvas = document.getElementById('heartCanvas');
+  const ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#e63946';
+  ctx.beginPath();
+  ctx.moveTo(100, 30);
+  ctx.bezierCurveTo(120, 0, 180, 0, 180, 60);
+  ctx.bezierCurveTo(180, 110, 100, 170, 100, 170);
+  ctx.bezierCurveTo(100, 170, 20, 110, 20, 60);
+  ctx.bezierCurveTo(20, 0, 80, 0, 100, 30);
+  ctx.fill();
+</script>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Stronger by the Plate</p>
+  </footer>
+
+</body>
+</html>
