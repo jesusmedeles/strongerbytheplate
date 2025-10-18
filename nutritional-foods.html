@@ -1,3 +1,4 @@
+<!-- nutritional-foods.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +25,7 @@
   <main>
     <section class="card">
       <h2>Top Alkaline Foods & Their Benefits</h2>
-      <p>Explore the best foods for longevity, energy, and internal balance.</p>
+      <p>Explore hydrating, mineral-rich foods that support balance and energy.</p>
     </section>
 
     <section class="nutrition-videos card">
@@ -50,10 +51,131 @@
           title="Benefits of Alkaline Foods" loading="lazy" allowfullscreen></iframe>
       </div>
     </section>
+
+    <!-- Alkaline-Leaning Vegetarian Recipe (API) -->
+    <section id="alkaline-recipe" class="card" aria-labelledby="alkalineRecipeHeading">
+      <h2 id="alkalineRecipeHeading">Today’s Vegetarian Recipe (Alkaline-Leaning) 🥒</h2>
+      <p class="muted">We favor leafy greens, herbs, cucumber, broccoli, avocado, lemon—and avoid dairy/eggs.</p>
+      <div class="row">
+        <button id="recipeBtn" type="button">Find a Recipe</button>
+        <small id="recipeStatus" class="muted">Idle</small>
+      </div>
+      <div id="recipeCard" class="recipe-card" aria-live="polite">
+        <p class="muted">Tap the button to load a recipe.</p>
+      </div>
+      <p class="tiny muted">
+        Source: <a href="https://www.themealdb.com/api.php" target="_blank" rel="noopener">TheMealDB</a> (no key). Heuristic filter applied.
+      </p>
+    </section>
   </main>
 
   <footer>
     <p>© 2025 Stronger by the Plate</p>
   </footer>
+
+  <script>
+    // Alkaline-leaning vegetarian recipe (TheMealDB)
+    const recipeBtn = document.getElementById('recipeBtn');
+    const recipeCard = document.getElementById('recipeCard');
+    const recipeStatus = document.getElementById('recipeStatus');
+
+    const preferIncl = ['spinach','kale','arugula','rocket','romaine','spring onion','green onion','parsley','cilantro','coriander','basil','mint','dill','cucumber','broccoli','zucchini','courgette','asparagus','celery','avocado','tomato','lemon','lime','garlic','ginger','pepper','bell pepper','capsicum','mushroom','onion'];
+    const avoid = ['cheese','mozzarella','parmesan','cheddar','feta','cream','double cream','single cream','sour cream','milk','evaporated milk','condensed milk','butter','yogurt','yoghurt','egg','mayonnaise'];
+    const badCarb = /(pasta|noodle|white bread|white rice)/;
+
+    const norm = s => (s||'').toLowerCase().trim();
+
+    function scoreMeal(meal) {
+      const ings = [];
+      for (let i=1;i<=20;i++){
+        const ing = norm(meal[`strIngredient${i}`]);
+        if (ing) ings.push(ing);
+      }
+      if (ings.some(ing => avoid.some(b => ing.includes(b)))) return {score:-999, ings};
+      let score = 0;
+      for (const ing of ings){
+        if (preferIncl.some(g => ing.includes(g))) score += 2;
+        if (badCarb.test(ing)) score -= 1;
+      }
+      return {score, ings};
+    }
+
+    function shortSteps(t, n=6){
+      return (t||'').split('\n').map(l=>l.trim()).filter(Boolean).slice(0,n).join('\n');
+    }
+
+    async function fetchVegList(){
+      const res = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Vegetarian');
+      if(!res.ok) throw new Error('List HTTP '+res.status);
+      const data = await res.json();
+      return data.meals || [];
+    }
+
+    async function fetchMeal(id){
+      const res = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
+      if(!res.ok) throw new Error('Detail HTTP '+res.status);
+      const data = await res.json();
+      return data.meals?.[0] || null;
+    }
+
+    function renderMeal(meal, ings, isFallback){
+      const steps = shortSteps(meal.strInstructions, 6);
+      const label = isFallback ? 'Balanced Veg (Fallback)' : 'Alkaline-Leaning';
+      const pairs = [];
+      for (let i=1;i<=20;i++){
+        const ing = norm(meal[`strIngredient${i}`]); const mea = norm(meal[`strMeasure${i}`]);
+        if (ing) pairs.push(((mea?mea+' ':'')+ing).trim());
+      }
+      recipeCard.innerHTML = `
+        <div class="topline"><span class="chip">${label}</span></div>
+        <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+        <div class="title">${meal.strMeal}</div>
+        <div class="meta">${meal.strArea || ''} • ${meal.strCategory || 'Vegetarian'}</div>
+        <strong>Ingredients:</strong>
+        <ul class="ingredients">${pairs.slice(0,10).map(i=>`<li>${i}</li>`).join('')}</ul>
+        <strong>Quick Steps:</strong>
+        <pre class="steps">${steps || 'See full instructions via the link below.'}</pre>
+        <p><a href="${meal.strSource || `https://www.themealdb.com/meal/${meal.idMeal}`}" target="_blank" rel="noopener">Full recipe & instructions</a></p>
+      `;
+    }
+
+    async function getRecipe(){
+      recipeBtn.disabled = true;
+      recipeStatus.textContent = 'Fetching…';
+      recipeCard.innerHTML = '<p class="muted">Loading recipe…</p>';
+      try{
+        const list = await fetchVegList();
+        if(!list.length) throw new Error('No vegetarian meals found');
+        const tries = 7;
+        let best = null;
+        for (let i=0;i<tries;i++){
+          const pick = list[Math.floor(Math.random()*list.length)];
+          const meal = await fetchMeal(pick.idMeal);
+          if(!meal) continue;
+          const {score, ings} = scoreMeal(meal);
+          if (best===null || score>best.score) best = {meal, score, ings};
+          if (score>=4){ best = {meal, score, ings}; break; }
+        }
+        if(!best) throw new Error('No meals scored');
+        // rebuild shown ingredients with measures
+        const pairs=[];
+        for (let j=1;j<=20;j++){
+          const ing=norm(best.meal[`strIngredient${j}`]);
+          const mea=norm(best.meal[`strMeasure${j}`]);
+          if(ing) pairs.push(((mea?mea+' ':'')+ing).trim());
+        }
+        renderMeal(best.meal, pairs, best.score<4);
+        recipeStatus.textContent = 'Success';
+      } catch(e){
+        console.error(e);
+        recipeCard.innerHTML = '<p>Could not load a recipe—please try again.</p>';
+        recipeStatus.textContent = 'Error';
+      } finally {
+        recipeBtn.disabled = false;
+      }
+    }
+
+    if (recipeBtn) recipeBtn.addEventListener('click', getRecipe);
+  </script>
 </body>
 </html>
