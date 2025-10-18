@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,7 @@
   <title>Stronger by the Plate</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <!-- Header + Navigation -->
   <header>
@@ -21,6 +23,14 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+
+  <!-- Site audio (top) -->
+  <section class="site-audio card">
+    <audio id="welcomeAudio" controls autoplay muted playsinline>
+      <source src="audio/audio1.m4a" type="audio/mp4" />
+      Your browser does not support the audio element.
+    </audio>
+  </section>
 
   <!-- Hero -->
   <section class="hero">
@@ -96,56 +106,60 @@
       <!-- API: Motivation -->
       <section id="motivation" class="api card" aria-labelledby="motivationHeading">
         <h2 id="motivationHeading">Need Motivation? 😤</h2>
-        <p class="muted">Tap the button to fetch a real inspirational quote.</p>
+        <p class="muted">Tap the button to fetch an inspirational quote.</p>
         <div class="row">
           <button id="motivateBtn" type="button">Get Motivation 💥</button>
           <small id="motivationStatus" class="muted">Idle</small>
         </div>
         <p id="motivationText" class="quote" aria-live="polite">“Your quote will appear here.”</p>
-        <p class="tiny muted">Source: <a href="https://api.quotable.io" target="_blank" rel="noopener">Quotable</a></p>
+        <p class="tiny muted">Source: <a href="https://api.quotable.io" target="_blank" rel="noopener">Quotable</a> (no key)</p>
       </section>
     </section>
   </main>
-
-  <!-- Audio -->
-  <section class="card audio-tip">
-    <h2>Listen to a Wellness Tip 🎧</h2>
-    <audio controls>
-      <source src="audio/audio1.m4a" type="audio/mp4" />
-      Your browser does not support the audio element.
-    </audio>
-  </section>
 
   <footer>
     <p>© 2025 Stronger by the Plate</p>
   </footer>
 
-  <!-- API Script -->
+  <!-- Motivation API -->
   <script>
-    const btn = document.getElementById('motivateBtn');
-    const out = document.getElementById('motivationText');
-    const statusEl = document.getElementById('motivationStatus');
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('motivateBtn');
+      const out = document.getElementById('motivationText');
+      const statusEl = document.getElementById('motivationStatus');
 
-    async function getQuote() {
-      btn.disabled = true;
-      statusEl.textContent = 'Fetching…';
-      try {
-        const res = await fetch('https://api.quotable.io/random?tags=inspirational|life|success', {
-          headers: { 'Accept': 'application/json' }, cache: 'no-store'
-        });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const data = await res.json();
-        out.textContent = `“${data.content}” — ${data.author || 'Unknown'}`;
-        statusEl.textContent = 'Success';
-      } catch (e) {
-        out.textContent = 'Sorry—couldn’t fetch a quote. Try again.';
-        statusEl.textContent = 'Error';
-        console.error(e);
-      } finally {
-        btn.disabled = false;
+      async function getQuote() {
+        if (!btn) return;
+        btn.disabled = true;
+        statusEl.textContent = 'Fetching…';
+        try {
+          const url = `https://api.quotable.io/random?tags=inspirational|life|success&cb=${Date.now()}`;
+          const res = await fetch(url, { headers: { 'Accept': 'application/json' }, cache: 'no-store' });
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          const data = await res.json();
+          const quote = data?.content || 'Keep going—you’ve got this!';
+          const author = data?.author ? ` — ${data.author}` : '';
+          out.textContent = `“${quote}”${author}`;
+          statusEl.textContent = 'Success';
+        } catch (e) {
+          console.error(e);
+          out.textContent = 'Sorry—couldn’t fetch a quote. Try again.';
+          statusEl.textContent = 'Error';
+        } finally {
+          btn.disabled = false;
+        }
       }
-    }
-    if (btn) btn.addEventListener('click', getQuote);
+
+      if (btn) btn.addEventListener('click', getQuote);
+    });
+  </script>
+
+  <!-- Gentle autoplay helper -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const aud = document.getElementById('welcomeAudio');
+      aud?.play?.().catch(()=>{});
+    });
   </script>
 </body>
 </html>
