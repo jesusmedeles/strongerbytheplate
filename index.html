@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stronger by the Plate</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Minimal additions so it looks nice even without changing your CSS file */
+    .mission-flex { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .mission-item { flex: 1 1 220px; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 12px; }
+    .extras .card, #motivation.card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.04); max-width: 720px; }
+    #motivation button { padding: 10px 16px; border-radius: 999px; border: none; font-weight: 600; cursor: pointer; background: #2563eb; color: #fff; }
+    #motivation button:disabled { opacity: .7; cursor: wait; }
+    #motivationStatus { color: #6b7280; font-size: .9rem; margin-left: 8px; }
+    #motivationText { margin: 10px 0 0; font-size: 1.05rem; line-height: 1.45; }
+  </style>
 </head>
 <body>
 
@@ -12,143 +22,45 @@
   <header>
     <div class="header-container">
       <h1>Stronger by the Plate</h1>
-      <img src="images/logo.png" alt="Stronger by the Plate Logo" class="site-logo">
+      <img src="images/logo.png" alt="Stronger by the Plate Logo" class="site-logo" />
     </div>
     <nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="nutritional-foods.html">Nutrit ional Foods</a>
-  <a href="workouts.html">Workouts</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="nutritional-foods.html">Nutritional Foods</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <img src="images/foodcommunity.jpg" alt="Community enjoying a meal together">
+    <img src="images/foodcommunity.jpg" alt="Community enjoying a meal together" />
     <div class="hero-text">
       <h2>Welcome to Stronger by the Plate</h2>
       <p>Discover how food, movement, and community can help you live a longer, healthier life — inspired by the world's Blue Zones.</p>
     </div>
   </section>
   
+  <!-- Three Pillars -->
   <section class="mission-flex">
-  <div class="mission-item">
-    <h3>Eat Well</h3>
-    <p>Learn simple, plant-forward recipes that fuel your day.</p>
-  </div>
-  <div class="mission-item">
-    <h3>Move Often</h3>
-    <p>Stay active with easy, at-home workouts and daily routines.</p>
-  </div>
-  <div class="mission-item">
-    <h3>Connect More</h3>
-    <p>Discover how community and social bonds boost longevity.</p>
-  </div>
-</section>
+    <div class="mission-item">
+      <h3>Eat Well</h3>
+      <p>Learn simple, plant-forward recipes that fuel your day.</p>
+    </div>
+    <div class="mission-item">
+      <h3>Move Often</h3>
+      <p>Stay active with easy, at-home workouts and daily routines.</p>
+    </div>
+    <div class="mission-item">
+      <h3>Connect More</h3>
+      <p>Discover how community and social bonds boost longevity.</p>
+    </div>
+  </section>
 
   <!-- Mission Section -->
   <main>
     <section class="mission">
       <h2>Our Mission</h2>
       <p>We believe in the power of plant-forward foods, mindful movement, and community connections to fuel longevity and wellness for all ages.</p>
-      <img src="images/foodcommunityplanview.jpg" alt="Overhead view of colorful healthy food on a table">
-    </section>
-
-    <!-- Extra Section: Lists, Tables, Video, JS -->
-    <section class="extras">
-      <h2>Top Plant-Based Proteins 🌿</h2>
-      <ul style="list-style-type: square;">
-        <li>Lentils</li>
-        <li>Chickpeas</li>
-        <li>Quinoa</li>
-        <li>Tofu</li>
-        <li>Tempeh</li>
-      </ul>
-
-      <h2>Daily Healthy Habits ☀️</h2>
-      <ol type="A">
-        <li>Stretch in the morning</li>
-        <li>Eat a nutrient-rich breakfast</li>
-        <li>Drink water throughout the day</li>
-        <li>Take a walk outside</li>
-        <li>Get 7-8 hours of sleep</li>
-      </ol>
-
-      <h2>Nutrition Facts Table 🧾</h2>
-      <table aria-label="Nutrition facts for common foods">
-        <thead>
-          <tr>
-            <th scope="col">Food</th>
-            <th scope="col">Calories</th>
-            <th scope="col">Protein (g)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Grilled Chicken</td>
-            <td>165</td>
-            <td>31</td>
-          </tr>
-          <tr>
-            <td>Broccoli</td>
-            <td>55</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>Brown Rice</td>
-            <td>215</td>
-            <td>5</td>
-          </tr>
-          <tr>
-            <td>Greek Yogurt</td>
-            <td>100</td>
-            <td>10</td>
-          </tr>
-          <tr>
-            <td>Tofu</td>
-            <td>144</td>
-            <td>15</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>Workout of the Day 🎥</h2>
-      <iframe 
-        width="560" 
-        height="315" 
-        src="https://www.youtube.com/embed/UBMk30rjy0o" 
-        title="15-minute workout video" 
-        frameborder="0" 
-        allowfullscreen>
-      </iframe>
-
-      <h2>Need Motivation? 😤</h2>
-      <button onclick="showMessage()">Click Me for Motivation 💥</button>
-    </section>
-  </main>
-
-  <!-- JavaScript -->
-  <script>
-    function showMessage() {
-      alert("Keep going! You're building a better you 💪");
-    }
-  </script>
-
-  <!-- Wellness Tip Audio -->
-<section class="audio-tip">
-  <h2>Listen to a Wellness Tip 🎧</h2>
-  <audio controls>
-    <source src="audio/audio1.m4a" type="audio/mp4">
-    Your browser does not support the audio element.
-  </audio>
-</section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Stronger by the Plate</p>
-  </footer>
-
-</body>
-</html>
+      <img src="images/foodcommunityplanview.jpg" alt="Overhead view of colorful healthy food on
