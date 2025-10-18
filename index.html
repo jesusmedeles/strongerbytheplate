@@ -2,30 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stronger by the Plate</title>
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* Minimal additions so it looks nice even without changing your CSS file */
-    .mission-flex { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .mission-item { flex: 1 1 220px; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 12px; }
-    .extras .card, #motivation.card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.04); max-width: 720px; }
-    #motivation button { padding: 10px 16px; border-radius: 999px; border: none; font-weight: 600; cursor: pointer; background: #2563eb; color: #fff; }
-    #motivation button:disabled { opacity: .7; cursor: wait; }
-    #motivationStatus { color: #6b7280; font-size: .9rem; margin-left: 8px; }
-    #motivationText { margin: 10px 0 0; font-size: 1.05rem; line-height: 1.45; }
-  </style>
 </head>
 <body>
-
   <!-- Header + Navigation -->
-  <header>
+  <header class="site-header">
     <div class="header-container">
-      <h1>Stronger by the Plate</h1>
       <img src="images/logo.png" alt="Stronger by the Plate Logo" class="site-logo" />
+      <h1>Stronger by the Plate</h1>
     </div>
-    <nav>
-      <a href="index.html">Home</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
       <a href="nutritional-foods.html">Nutritional Foods</a>
       <a href="workouts.html">Workouts</a>
@@ -33,7 +22,7 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
     <img src="images/foodcommunity.jpg" alt="Community enjoying a meal together" />
     <div class="hero-text">
@@ -41,26 +30,128 @@
       <p>Discover how food, movement, and community can help you live a longer, healthier life — inspired by the world's Blue Zones.</p>
     </div>
   </section>
-  
+
   <!-- Three Pillars -->
-  <section class="mission-flex">
-    <div class="mission-item">
+  <section class="pillars">
+    <article class="pillar">
       <h3>Eat Well</h3>
       <p>Learn simple, plant-forward recipes that fuel your day.</p>
-    </div>
-    <div class="mission-item">
+    </article>
+    <article class="pillar">
       <h3>Move Often</h3>
       <p>Stay active with easy, at-home workouts and daily routines.</p>
-    </div>
-    <div class="mission-item">
+    </article>
+    <article class="pillar">
       <h3>Connect More</h3>
       <p>Discover how community and social bonds boost longevity.</p>
-    </div>
+    </article>
   </section>
 
-  <!-- Mission Section -->
   <main>
-    <section class="mission">
+    <!-- Mission -->
+    <section class="card mission">
       <h2>Our Mission</h2>
       <p>We believe in the power of plant-forward foods, mindful movement, and community connections to fuel longevity and wellness for all ages.</p>
-      <img src="images/foodcommunityplanview.jpg" alt="Overhead view of colorful healthy food on
+      <img src="images/foodcommunityplanview.jpg" alt="Overhead view of colorful healthy food on a table" />
+    </section>
+
+    <!-- Lists / Table / Video -->
+    <section class="card">
+      <h2>Top Plant-Based Proteins 🌿</h2>
+      <ul class="list">
+        <li>Lentils</li><li>Chickpeas</li><li>Quinoa</li><li>Tofu</li><li>Tempeh</li>
+      </ul>
+
+      <h2>Daily Healthy Habits ☀️</h2>
+      <ol class="list ordered">
+        <li>Stretch in the morning</li>
+        <li>Eat a nutrient-rich breakfast</li>
+        <li>Drink water throughout the day</li>
+        <li>Take a walk outside</li>
+        <li>Get 7–8 hours of sleep</li>
+      </ol>
+
+      <h2>Nutrition Facts 🧾</h2>
+      <div class="scroll-x">
+        <table aria-label="Nutrition facts for common foods">
+          <thead>
+            <tr><th>Food</th><th>Calories</th><th>Protein (g)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Grilled Chicken</td><td>165</td><td>31</td></tr>
+            <tr><td>Broccoli</td><td>55</td><td>4</td></tr>
+            <tr><td>Brown Rice</td><td>215</td><td>5</td></tr>
+            <tr><td>Greek Yogurt</td><td>100</td><td>10</td></tr>
+            <tr><td>Tofu</td><td>144</td><td>15</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Workout of the Day 🎥</h2>
+      <div class="video">
+        <iframe
+          src="https://www.youtube.com/embed/UBMk30rjy0o"
+          title="15-minute workout video"
+          loading="lazy"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- API: Motivation Quotes -->
+    <section id="motivation" class="card" aria-labelledby="motivationHeading">
+      <h2 id="motivationHeading">Need Motivation? 😤</h2>
+      <p class="muted">Tap the button to fetch a real inspirational quote (from Quotable API).</p>
+      <div class="row">
+        <button id="motivateBtn" type="button">Get Motivation 💥</button>
+        <small id="motivationStatus" class="muted">Idle</small>
+      </div>
+      <p id="motivationText" class="quote" aria-live="polite">“Your quote will appear here.”</p>
+      <p class="tiny muted">Source: <a href="https://api.quotable.io" target="_blank" rel="noopener">Quotable</a> (no API key required).</p>
+    </section>
+
+    <!-- Wellness Tip Audio -->
+    <section class="card audio-tip">
+      <h2>Listen to a Wellness Tip 🎧</h2>
+      <audio controls>
+        <source src="audio/audio1.m4a" type="audio/mp4" />
+        Your browser does not support the audio element.
+      </audio>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Stronger by the Plate</p>
+  </footer>
+
+  <!-- API Script -->
+  <script>
+    const btn = document.getElementById('motivateBtn');
+    const out = document.getElementById('motivationText');
+    const statusEl = document.getElementById('motivationStatus');
+
+    async function getQuote() {
+      btn.disabled = true;
+      statusEl.textContent = 'Fetching…';
+      try {
+        const res = await fetch('https://api.quotable.io/random?tags=inspirational|life|success', {
+          headers: { 'Accept': 'application/json' },
+          cache: 'no-store'
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        const quote = data?.content || 'Keep going—you’ve got this!';
+        const author = data?.author ? ' — ' + data.author : '';
+        out.textContent = '“' + quote + '”' + author;
+        statusEl.textContent = 'Success';
+      } catch (err) {
+        console.error(err);
+        out.textContent = 'Sorry—couldn’t fetch a quote. Try again.';
+        statusEl.textContent = 'Error';
+      } finally {
+        btn.disabled = false;
+      }
+    }
+    if (btn) btn.addEventListener('click', getQuote);
+  </script>
+</body>
+</html>
