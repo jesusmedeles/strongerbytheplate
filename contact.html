@@ -4,50 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact | Stronger by the Plate</title>
-  <!-- Brand fonts: Poppins (headings) + Inter (body) -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+  <!-- Header -->
   <header>
     <div class="header-container">
-      <h1>Stronger by the Plate</h1>
-      <img src="images/logo.png" alt="Stronger by the Plate Logo" class="site-logo" />
+      <img src="images/logo.svg" alt="Stronger by the Plate Logo" class="site-logo" />
+      <nav aria-label="Main Navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="nutritional-foods.html">Nutritional Foods</a>
+        <a href="workouts.html">Workouts</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
     </div>
-    <nav aria-label="Main">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="nutritional-foods.html">Nutritional Foods</a>
-      <a href="workouts.html">Workouts</a>
-      <a href="contact.html" class="active">Contact</a>
-    </nav>
   </header>
 
-  <main class="contact-main">
-    <h2>Contact Us</h2>
-    <p>We’d love to hear from you! Use the form below to share feedback or collaboration ideas.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Get Connected</h1>
+      <p>We’d love to hear from you! Share your goals or ideas for collaboration — we’re here to grow together.</p>
+    </div>
+  </section>
 
+  <!-- Contact Form -->
+  <section class="resources">
+    <h2>Share Your Wellness Goals 🌿</h2>
     <form class="contact-form">
-      <h3>Share Your Wellness Goals 🌿</h3>
-
-      <label for="name">Your Name:</label>
+      <label for="name"><strong>Your Name:</strong></label>
       <input type="text" id="name" name="name" placeholder="Enter your name" required />
 
-      <p>How would you describe your activity level?</p>
-      <label><input type="radio" name="activity" value="beginner" required /> Beginner</label>
-      <label><input type="radio" name="activity" value="intermediate" /> Intermediate</label>
+      <p><strong>How would you describe your activity level?</strong></p>
+      <label><input type="radio" name="activity" value="beginner" required /> Beginner</label><br />
+      <label><input type="radio" name="activity" value="intermediate" /> Intermediate</label><br />
       <label><input type="radio" name="activity" value="advanced" /> Advanced</label>
 
-      <p>Which wellness goals are you most focused on?</p>
-      <label><input type="checkbox" name="goal" value="nutrition" /> Improve Nutrition</label>
-      <label><input type="checkbox" name="goal" value="fitness" /> Increase Fitness</label>
+      <p style="margin-top:1.5rem;"><strong>Which wellness goals are you most focused on?</strong></p>
+      <label><input type="checkbox" name="goal" value="nutrition" /> Improve Nutrition</label><br />
+      <label><input type="checkbox" name="goal" value="fitness" /> Increase Fitness</label><br />
       <label><input type="checkbox" name="goal" value="mindfulness" /> Practice Mindfulness</label>
 
-      <button type="submit">Submit My Goals</button>
+      <button type="submit" class="cta-btn" style="margin-top:1.5rem;">Submit My Goals</button>
     </form>
-  </main>
+  </section>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 Stronger by the Plate</p>
   </footer>
