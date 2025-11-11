@@ -4,9 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Workouts | Stronger by the Plate</title>
-  <!-- Brand fonts: Poppins (headings) + Inter (body) -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 
   <!-- jQuery + jQuery UI -->
@@ -14,69 +16,88 @@
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
 </head>
+
 <body>
+  <!-- Header -->
   <header>
     <div class="header-container">
-      <h1>Stronger by the Plate</h1>
-      <img src="images/logo.png" alt="Stronger by the Plate Logo" class="site-logo" />
+      <img src="images/logo.svg" alt="Stronger by the Plate Logo" class="site-logo" />
+      <nav aria-label="Main Navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="nutritional-foods.html">Nutritional Foods</a>
+        <a href="workouts.html" class="active">Workouts</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-    <nav aria-label="Main">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="nutritional-foods.html">Nutritional Foods</a>
-      <a href="workouts.html" class="active">Workouts</a>
-      <a href="contact.html">Contact</a>
-    </nav>
   </header>
 
-  <main>
-    <section class="card">
-      <h2>Home-Friendly and Gym-Based Exercises</h2>
-      <p>Custom workouts for different age groups and goals. Includes video links and beginner plans.</p>
-    </section>
-  </main>
-
-  <section class="workout-videos card">
-    <h2>Watch & Move: Guided Workouts 🎥</h2>
-
-    <div class="video-wrapper">
-      <h3>10-Minute Beginner Full Body Workout</h3>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/rYehSR0_M0E"
-        title="10-Minute Beginner Full Body Workout" loading="lazy" allowfullscreen></iframe>
-    </div>
-
-    <div class="video-wrapper">
-      <h3>Quick Cardio for Energy</h3>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/965Fwq2aVIo"
-        title="Quick Cardio Workout" loading="lazy" allowfullscreen></iframe>
-    </div>
-
-    <div class="video-wrapper">
-      <h3>Stretch and Cool Down Routine</h3>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/USzSlDUyMK0"
-        title="Stretch and Cool Down" loading="lazy" allowfullscreen></iframe>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Move Often, Feel Stronger</h1>
+      <p>Home-friendly and gym-based workouts for all levels — designed to keep you active, energized, and thriving.</p>
     </div>
   </section>
 
-  <section id="nutrition-facts" class="card">
+  <!-- Workouts Overview -->
+  <section class="mission">
+    <div class="mission-text">
+      <h2>Workout Library</h2>
+      <p>Discover guided exercises, stretches, and cardio routines to support strength, flexibility, and longevity — inspired by daily movement in the world’s healthiest communities.</p>
+    </div>
+    <img src="images/workout.jpg" alt="Workout and stretching" />
+  </section>
+
+  <!-- Workout Videos -->
+  <section class="resources">
+    <h2>Watch & Move 🎥</h2>
+    <div class="resource-grid">
+      <article>
+        <h3>10-Minute Beginner Full Body Workout</h3>
+        <iframe width="100%" height="250" src="https://www.youtube.com/embed/rYehSR0_M0E" title="10-Minute Beginner Full Body Workout" loading="lazy" allowfullscreen></iframe>
+      </article>
+
+      <article>
+        <h3>Quick Cardio for Energy</h3>
+        <iframe width="100%" height="250" src="https://www.youtube.com/embed/965Fwq2aVIo" title="Quick Cardio Workout" loading="lazy" allowfullscreen></iframe>
+      </article>
+
+      <article>
+        <h3>Stretch and Cool Down Routine</h3>
+        <iframe width="100%" height="250" src="https://www.youtube.com/embed/USzSlDUyMK0" title="Stretch and Cool Down" loading="lazy" allowfullscreen></iframe>
+      </article>
+    </div>
+  </section>
+
+  <!-- Nutrition Facts Accordion -->
+  <section class="resources">
     <h2>Nutrition Quick Facts 🍎</h2>
     <div id="accordion">
       <h3>Plant-Based Benefits</h3>
-      <div><p>Plant-based diets support heart health and longevity.</p></div>
+      <div><p>Plant-based diets support heart health, reduce inflammation, and promote longevity.</p></div>
+
       <h3>Protein Power</h3>
-      <div><p>Legumes, nuts, and tofu are excellent protein sources.</p></div>
+      <div><p>Legumes, nuts, seeds, and tofu are powerful, plant-based protein sources for muscle health.</p></div>
+
       <h3>Hydration Tips</h3>
-      <div><p>Drinking enough water daily boosts energy and focus.</p></div>
+      <div><p>Drinking enough water daily boosts energy, supports focus, and improves recovery.</p></div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 Stronger by the Plate</p>
   </footer>
 
+  <!-- Accordion Script -->
   <script>
-    $(function () {
-      $("#accordion").accordion({ collapsible: true, heightStyle: "content" });
+    $(function() {
+      $("#accordion").accordion({
+        collapsible: true,
+        heightStyle: "content",
+        active: false
+      });
     });
   </script>
 </body>

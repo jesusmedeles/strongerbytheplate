@@ -5,160 +5,113 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About | Stronger by the Plate</title>
 
-  <!-- Brand fonts (Poppins + Inter) -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
 
-  <!-- Header + Nav -->
+<body>
+  <!-- Header -->
   <header>
     <div class="header-container">
-      <h1>Stronger by the Plate</h1>
-      <img src="images/logo.png" alt="Stronger by the Plate Logo" class="site-logo" />
+      <img src="images/logo.svg" alt="Stronger by the Plate Logo" class="site-logo" />
+      <nav aria-label="Main Navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="nutritional-foods.html">Nutritional Foods</a>
+        <a href="workouts.html">Workouts</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-    <nav aria-label="Main">
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
-      <a href="nutritional-foods.html">Nutritional Foods</a>
-      <a href="workouts.html">Workouts</a>
-      <a href="contact.html">Contact</a>
-    </nav>
   </header>
 
-  <main>
-    <!-- Mission / Intro -->
-    <section class="mission card">
-      <h2>About Stronger by the Plate</h2>
-      <p><strong>Stronger by the Plate</strong> is a wellness movement centered on eating well, moving often, and connecting more.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>About Stronger by the Plate</h1>
+      <p>Building a healthier world through nutrition, movement, and community inspired by the world’s Blue Zones.</p>
+    </div>
+  </section>
 
-      <h3>Our Mission</h3>
-      <p>We empower all ages to make sustainable nutrition and fitness choices. Small daily actions add up.</p>
-    </section>
+  <!-- Mission -->
+  <section class="mission">
+    <div class="mission-text">
+      <h2>Our Mission</h2>
+      <p>We empower people of all ages to make sustainable choices that lead to longer, healthier lives. Through plant-forward nutrition, active living, and strong social connections, we create the foundation for lifelong vitality.</p>
+    </div>
+    <img src="images/foodcommunityplanview.jpg" alt="Healthy food and people sharing a meal" />
+  </section>
 
-    <!-- Testimonials (formerly Personas) -->
-    <section class="user-persona card">
-      <h3>Testimonials</h3>
+  <!-- Testimonials -->
+  <section class="resources">
+    <h2>Community Stories</h2>
+    <div class="resource-grid">
+      <!-- Maria -->
+      <article>
+        <img src="images/maria.jpg" alt="Maria Gomez, Teacher" />
+        <h3>Maria Gomez, 42</h3>
+        <p><strong>Occupation:</strong> Teacher • <strong>Location:</strong> Austin, TX</p>
+        <blockquote>“As a busy mom and teacher, I needed simple, realistic steps. The plant-forward recipes and 10-minute workouts helped me feel energized without the fad-diet stress.”</blockquote>
+      </article>
 
-      <!-- Testimonial 1: Maria -->
-      <div class="persona-box">
-        <img
-          src="images/maria.jpg"
-          alt="Maria Gomez, Teacher"
-          class="persona-img" />
-        <div class="persona-info">
-          <h4>Maria Gomez, 42</h4>
-          <p><strong>Occupation:</strong> Teacher</p>
-          <p><strong>Location:</strong> Austin, TX</p>
+      <!-- David -->
+      <article>
+        <img src="images/david.jpg" alt="David Chen, College Professor" />
+        <h3>David Chen, 38</h3>
+        <p><strong>Occupation:</strong> College Professor • <strong>Location:</strong> Seattle, WA</p>
+        <blockquote>“Long days at my desk wrecked my posture. The strength routines and easy meal-prep tips made it doable to stay consistent—even during the semester.”</blockquote>
+      </article>
+    </div>
+  </section>
 
-          <h4>Her Story</h4>
-          <blockquote>
-            “As a busy mom and teacher, I needed simple, realistic steps. The plant-forward recipes and 10-minute workouts helped me feel energized without the fad-diet stress.”
-          </blockquote>
-
-          <h4>🥗 Goals</h4>
-          <ul>
-            <li>Eat more plant-based meals</li>
-            <li>Find easy, quick workouts</li>
-            <li>Improve overall energy</li>
-          </ul>
-
-          <h4>⚡ Challenges</h4>
-          <ul>
-            <li>Limited free time</li>
-            <li>Confusing nutrition info</li>
-            <li>Avoiding fad diets</li>
-          </ul>
-        </div>
-      </div>
-
-      <hr style="border:0;height:1px;background:#e5e7eb;margin:22px 0;">
-
-      <!-- Testimonial 2: David -->
-      <div class="persona-box">
-        <img
-          src="images/david.jpg"
-          alt="David Chen, College Professor"
-          class="persona-img" />
-        <div class="persona-info">
-          <h4>David Chen, 38</h4>
-          <p><strong>Occupation:</strong> College Professor</p>
-          <p><strong>Location:</strong> Seattle, WA</p>
-
-          <h4>His Story</h4>
-          <blockquote>
-            “Long days at my desk wrecked my posture. The site’s strength routines and easy meal-prep tips made it doable to stay consistent—even during the semester.”
-          </blockquote>
-
-          <h4>💪 Goals</h4>
-          <ul>
-            <li>Build muscle and improve strength</li>
-            <li>Fix posture from desk work</li>
-            <li>Learn meal prep for a busy schedule</li>
-          </ul>
-
-          <h4>⚡ Challenges</h4>
-          <ul>
-            <li>Sedentary work lifestyle</li>
-            <li>Limited gym time</li>
-            <li>Staying consistent with diet</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Beliefs / Promise -->
-    <section class="beliefs card">
-      <h3>What We Believe</h3>
+  <!-- Beliefs / Promise -->
+  <section class="mission">
+    <div class="mission-text">
+      <h2>Our Beliefs</h2>
       <ul>
-        <li><strong>Plant-Forward Eating:</strong> Build plates around vegetables, legumes, fruits, whole grains.</li>
-        <li><strong>Mindful Movement:</strong> Consistent, enjoyable activity.</li>
-        <li><strong>Community Connection:</strong> Social bonds matter.</li>
-        <li><strong>Accessible Health:</strong> Everyone deserves tools to thrive.</li>
+        <li><strong>Plant-Forward Eating:</strong> Build plates around vegetables, legumes, fruits, and whole grains.</li>
+        <li><strong>Mindful Movement:</strong> Stay active in enjoyable, sustainable ways.</li>
+        <li><strong>Community Connection:</strong> Health grows stronger when shared.</li>
+        <li><strong>Accessible Wellness:</strong> Everyone deserves tools to thrive.</li>
       </ul>
 
-      <h3>Who We Serve</h3>
-      <p>Students, parents, retirees, athletes—anyone seeking better health.</p>
-
       <h3>Our Promise</h3>
-      <p>We aim to be a trustworthy source of wellness knowledge that prioritizes balance, not extremes. We celebrate progress, not perfection — and we’re here to help you every step of the way.</p>
+      <p>We aim to be a trusted source of wellness knowledge that promotes balance over extremes. We celebrate progress, not perfection — and we’re here to support you every step of the way.</p>
+    </div>
+    <img src="images/foodcommunity.jpg" alt="Healthy food and community gathering" />
+  </section>
 
-      <img src="images/foodcommunityplanview.jpg" alt="Healthy food and people together" class="rounded-img" />
-    </section>
+  <!-- Blue Zones Videos -->
+  <section class="resources">
+    <h2>Learn from the Blue Zones 🌍</h2>
+    <div class="resource-grid">
+      <article>
+        <iframe width="100%" height="250" src="https://www.youtube.com/embed/h9cC-8v8NIE" title="The Blue Zones - National Geographic" loading="lazy" allowfullscreen></iframe>
+      </article>
+      <article>
+        <iframe width="100%" height="250" src="https://www.youtube.com/embed/wsOL5nKO6c0" title="Secrets of the Blue Zones" loading="lazy" allowfullscreen></iframe>
+      </article>
+    </div>
+  </section>
 
-    <!-- Blue Zones videos (under Our Promise) -->
-    <section class="nutrition-videos card" style="margin-top:16px;">
-      <h2>Blue Zones: Learn More 🌍</h2>
-      <div class="video-wrapper">
-        <iframe width="560" height="315"
-          src="https://www.youtube.com/embed/h9cC-8v8NIE"
-          title="The Blue Zones - National Geographic"
-          loading="lazy" allowfullscreen></iframe>
-      </div>
-      <div class="video-wrapper">
-        <iframe width="560" height="315"
-          src="https://www.youtube.com/embed/wsOL5nKO6c0"
-          title="Secrets of the Blue Zones"
-          loading="lazy" allowfullscreen></iframe>
-      </div>
-    </section>
+  <!-- Canvas Heart -->
+  <section class="audio-section">
+    <h2>Your Heart in Action ❤️</h2>
+    <canvas id="heartCanvas" width="200" height="200"></canvas>
+  </section>
 
-    <!-- Canvas heart -->
-    <section class="canvas-art card">
-      <h2>Your Heart in Action ❤️</h2>
-      <canvas id="heartCanvas" width="200" height="200"></canvas>
-    </section>
-  </main>
-
+  <!-- Footer -->
   <footer>
     <p>© 2025 Stronger by the Plate</p>
   </footer>
 
-  <!-- Simple heart canvas -->
+  <!-- Heart Canvas Script -->
   <script>
     const canvas = document.getElementById('heartCanvas');
     const ctx = canvas.getContext('2d');
-    ctx.fillStyle = '#e63946';
+    ctx.fillStyle = '#0077B6';
     ctx.beginPath();
     ctx.moveTo(100, 30);
     ctx.bezierCurveTo(120, 0, 180, 0, 180, 60);
@@ -169,3 +122,4 @@
   </script>
 </body>
 </html>
+

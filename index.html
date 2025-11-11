@@ -4,220 +4,109 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stronger by the Plate</title>
-  <!-- Brand fonts: Poppins (headings) + Inter (body) -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <!-- Header + Navigation -->
+  <!-- Header -->
   <header>
     <div class="header-container">
-      <h1>Stronger by the Plate</h1>
-      <img src="images/logo.png" alt="Stronger by the Plate Logo" class="site-logo" />
+      <img src="images/logo.svg" alt="Stronger by the Plate Logo" class="site-logo" />
+      <nav aria-label="Main Navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="nutritional-foods.html">Nutritional Foods</a>
+        <a href="workouts.html">Workouts</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-    <nav aria-label="Main">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="nutritional-foods.html">Nutritional Foods</a>
-      <a href="workouts.html">Workouts</a>
-      <a href="contact.html">Contact</a>
-    </nav>
   </header>
 
   <!-- Hero -->
   <section class="hero">
-    <img src="images/foodcommunity.jpg" alt="Community enjoying a meal together" />
-    <div class="hero-text">
-      <h2>Welcome to Stronger by the Plate</h2>
-      <p>Discover how food, movement, and community can help you live a longer, healthier life — inspired by the world's Blue Zones.</p>
+    <div class="hero-content">
+      <h1>Food. Movement. Community. Longevity.</h1>
+      <p>Discover how mindful eating, simple movement, and community connection can help you live longer and stronger.</p>
+      <a href="contact.html" class="cta-btn">Get Connected</a>
     </div>
   </section>
 
-  <!-- Flex pillars -->
-  <section class="mission-flex">
-    <div class="mission-item">
+  <!-- Pillars -->
+  <section class="pillars">
+    <div class="pillar">
       <h3>Eat Well</h3>
-      <p>Learn simple, plant-forward recipes that fuel your day.</p>
+      <p>Explore plant-forward meals inspired by the world’s Blue Zones.</p>
     </div>
-    <div class="mission-item">
+    <div class="pillar">
       <h3>Move Often</h3>
-      <p>Stay active with easy, at-home workouts and daily routines.</p>
+      <p>Build daily movement habits that support long-term vitality.</p>
     </div>
-    <div class="mission-item">
+    <div class="pillar">
       <h3>Connect More</h3>
-      <p>Discover how community and social bonds boost longevity.</p>
+      <p>Join a community that grows stronger—together.</p>
     </div>
   </section>
 
-  <main>
-    <!-- Mission -->
-    <section class="mission card">
+  <!-- Mission -->
+  <section class="mission">
+    <div class="mission-text">
       <h2>Our Mission</h2>
-      <p>We believe in the power of plant-forward foods, mindful movement, and community connections to fuel longevity and wellness for all ages.</p>
-      <img src="images/foodcommunityplanview.jpg" alt="Overhead view of colorful healthy food on a table" />
-    </section>
+      <p>We believe that nourishment, movement, and connection are the foundations of a long and meaningful life. Inspired by global Blue Zones, we share tools and inspiration for balanced, plant-focused living.</p>
+    </div>
+    <img src="images/foodcommunityplanview.jpg" alt="Healthy food and community table" />
+  </section>
 
-    <!-- Lists / table / video -->
-    <section class="extras card">
-      <h2>Top Plant-Based Proteins 🌿</h2>
-      <ul class="list">
-        <li>Lentils</li><li>Chickpeas</li><li>Quinoa</li><li>Tofu</li><li>Tempeh</li>
-      </ul>
+  <!-- Resources -->
+  <section class="resources">
+    <h2>Learn • Nourish • Move</h2>
+    <div class="resource-grid">
+      <article>
+        <img src="images/foodcommunity.jpg" alt="Plant-based foods" />
+        <h3>Nutritional Foods</h3>
+        <p>Discover alkaline-leaning, vegetarian foods that fuel vitality.</p>
+        <a href="nutritional-foods.html" class="text-link">Explore →</a>
+      </article>
 
-      <h2>Daily Healthy Habits ☀️</h2>
-      <ol class="list ordered">
-        <li>Stretch in the morning</li>
-        <li>Eat a nutrient-rich breakfast</li>
-        <li>Drink water throughout the day</li>
-        <li>Take a walk outside</li>
-        <li>Get 7–8 hours of sleep</li>
-      </ol>
+      <article>
+        <img src="images/workout.jpg" alt="Workout" />
+        <h3>Workouts</h3>
+        <p>Follow guided routines designed for every lifestyle.</p>
+        <a href="workouts.html" class="text-link">Start →</a>
+      </article>
 
-      <h2>Nutrition Facts Table 🧾</h2>
-      <div class="scroll-x">
-        <table aria-label="Nutrition facts for common foods">
-          <thead><tr><th>Food</th><th>Calories</th><th>Protein (g)</th></tr></thead>
-          <tbody>
-            <tr><td>Grilled Chicken</td><td>165</td><td>31</td></tr>
-            <tr><td>Broccoli</td><td>55</td><td>4</td></tr>
-            <tr><td>Brown Rice</td><td>215</td><td>5</td></tr>
-            <tr><td>Greek Yogurt</td><td>100</td><td>10</td></tr>
-            <tr><td>Tofu</td><td>144</td><td>15</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <article>
+        <img src="images/community.jpg" alt="Community gathering" />
+        <h3>Community Stories</h3>
+        <p>Read inspiring journeys from people thriving with purpose.</p>
+        <a href="about.html" class="text-link">Learn →</a>
+      </article>
+    </div>
+  </section>
 
-      <h2>Workout of the Day 🎥</h2>
-      <div class="video">
-        <iframe
-          src="https://www.youtube.com/embed/UBMk30rjy0o"
-          title="15-minute workout video"
-          loading="lazy" allowfullscreen></iframe>
-      </div>
+  <!-- Join Community -->
+  <section class="join-community">
+    <h2>Join Our Community</h2>
+    <p>Connect with social groups and wellness circles that support your journey to a healthier, happier you.</p>
+    <a href="contact.html" class="cta-btn light">Get Connected</a>
+  </section>
 
-      <!-- API: Motivation -->
-      <section id="motivation" class="api card" aria-labelledby="motivationHeading">
-        <h2 id="motivationHeading">Need Motivation? 😤</h2>
-        <p class="muted">Tap the button to fetch an inspirational quote.</p>
-        <div class="row">
-          <button id="motivateBtn" type="button">Get Motivation 💥</button>
-          <small id="motivationStatus" class="muted">Idle</small>
-        </div>
-        <p id="motivationText" class="quote" aria-live="polite">“Your quote will appear here.”</p>
-        <p class="tiny muted">Source: <a href="https://api.quotable.io" target="_blank" rel="noopener">Quotable</a> (no key)</p>
-      </section>
-    </section>
-  </main>
-
-  <!-- Centered bottom audio -->
-  <section class="audio-tip card center-audio">
-    <h2>Listen to a Wellness Tip 🎧</h2>
-    <audio id="welcomeAudio" controls autoplay muted playsinline>
-      <source src="audio/audio1.m4a" type="audio/mp4" />
+  <!-- Motivational Music -->
+  <section class="audio-section">
+    <h2>Listen to a Wellness Boost 🎶</h2>
+    <audio controls autoplay muted loop>
+      <source src="audio/audio1.m4a" type="audio/mp4">
       Your browser does not support the audio element.
     </audio>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>© 2025 Stronger by the Plate</p>
   </footer>
-
-  <!-- Motivation API -->
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('motivateBtn');
-    const out = document.getElementById('motivationText');
-    const statusEl = document.getElementById('motivationStatus');
-
-    // Local fallback quotes (always works even if the internet blocks APIs)
-    const localQuotes = [
-      ["Small steps add up.", "Unknown"],
-      ["You don’t have to be extreme—just consistent.", "Unknown"],
-      ["Action is the antidote to doubt.", "Joan Baez"],
-      ["Do something today your future self will thank you for.", "Sean Patrick Flanery"],
-      ["Fall seven times, stand up eight.", "Japanese Proverb"],
-      ["Discipline is choosing what you want most over what you want now.", "Unknown"],
-    ];
-
-    async function fetchQuotableV1() {
-      const url = `https://api.quotable.io/random?tags=inspirational|life|success&cb=${Date.now()}`;
-      const res = await fetch(url, {
-        headers: { 'Accept': 'application/json' },
-        cache: 'no-store',
-        mode: 'cors',
-        referrerPolicy: 'no-referrer'
-      });
-      if (!res.ok) throw new Error('Quotable v1 HTTP ' + res.status);
-      const d = await res.json();
-      return { text: d.content, author: d.author || 'Unknown' };
-    }
-
-    async function fetchQuotableV2() {
-      const url = `https://api.quotable.io/quotes/random?limit=1&tags=inspirational|life|success&cb=${Date.now()}`;
-      const res = await fetch(url, {
-        headers: { 'Accept': 'application/json' },
-        cache: 'no-store',
-        mode: 'cors',
-        referrerPolicy: 'no-referrer'
-      });
-      if (!res.ok) throw new Error('Quotable v2 HTTP ' + res.status);
-      const arr = await res.json();
-      const d = Array.isArray(arr) && arr[0] ? arr[0] : null;
-      if (!d) throw new Error('Quotable v2 bad payload');
-      return { text: d.content, author: d.author || 'Unknown' };
-    }
-
-    async function fetchZenQuotes() {
-      const url = `https://zenquotes.io/api/random?cb=${Date.now()}`;
-      const res = await fetch(url, { cache: 'no-store', mode: 'cors', referrerPolicy: 'no-referrer' });
-      if (!res.ok) throw new Error('ZenQuotes HTTP ' + res.status);
-      const arr = await res.json();
-      const d = Array.isArray(arr) && arr[0] ? arr[0] : null;
-      if (!d) throw new Error('ZenQuotes bad payload');
-      return { text: d.q, author: d.a || 'Unknown' };
-    }
-
-    async function fetchTypeFit() {
-      const res = await fetch('https://type.fit/api/quotes', { cache: 'no-store', mode: 'cors', referrerPolicy: 'no-referrer' });
-      if (!res.ok) throw new Error('type.fit HTTP ' + res.status);
-      const arr = await res.json();
-      if (!Array.isArray(arr) || !arr.length) throw new Error('type.fit bad payload');
-      const pick = arr[Math.floor(Math.random() * arr.length)];
-      return { text: pick.text, author: pick.author || 'Unknown' };
-    }
-
-    function localFallback() {
-      const [t, a] = localQuotes[Math.floor(Math.random() * localQuotes.length)];
-      return { text: t, author: a };
-    }
-
-    async function getQuote() {
-      if (!btn) return;
-      btn.disabled = true;
-      statusEl.textContent = 'Fetching…';
-      try {
-        // Try providers in order; the first that works wins.
-        const providers = [fetchQuotableV1, fetchQuotableV2, fetchZenQuotes, fetchTypeFit];
-        let result = null, lastErr = null;
-        for (const fn of providers) {
-          try { result = await fn(); break; }
-          catch (e) { lastErr = e; }
-        }
-        if (!result) result = localFallback();
-
-        out.textContent = `“${result.text}” — ${result.author}`;
-        statusEl.textContent = 'Success';
-      } catch (e) {
-        console.error(e);
-        out.textContent = 'Sorry—couldn’t fetch a quote. Try again.';
-        statusEl.textContent = 'Error';
-      } finally {
-        btn.disabled = false;
-      }
-    }
-
-    if (btn) btn.addEventListener('click', getQuote);
-  });
-</script>
+</body>
+</html>
