@@ -57,7 +57,19 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-.site-logo { height: 72px; }
+
+.site-logo {
+  height: 110px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+@media (max-width: 600px) {
+  .site-logo {
+    height: 90px;
+  }
+}
+
 
 /* --- Navigation --- */
 nav {
