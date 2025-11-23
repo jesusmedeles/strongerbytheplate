@@ -1,6 +1,6 @@
 /* ============================ 
    Stronger by the Plate Theme
-   (Updated Green Color Palette)
+   (Updated Deep Sage / Evergreen Palette)
    ============================ */
 
 /* --- Google Fonts (backup import) --- */
@@ -31,7 +31,6 @@
   --sage-surface: #E9F0EC;
 }
 
-
 /* --- Global Reset --- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; scroll-behavior: smooth; }
@@ -49,7 +48,9 @@ h1, h2, h3 {
   color: var(--text-heading);
   text-align: center;
 }
-h1 { font-size: clamp(28px, 5vw, 42px); }
+h1 {
+  font-size: clamp(28px, 5vw, 42px);
+}
 h2 {
   font-size: clamp(26px, 3.5vw, 34px);
   margin-bottom: 0.75em;
@@ -57,13 +58,21 @@ h2 {
   letter-spacing: 0.5px;
   font-weight: 700;           /* stronger heading weight */
 }
-h3 { font-size: 1.4rem; margin-bottom: .3em; }
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: .3em;
+}
+
+/* Make pillar headings use sage green accent */
+.pillar h3 {
+  color: var(--green-main);
+}
 
 /* --- Header --- */
 header {
   background: var(--cream);
   border-bottom: 2px solid var(--gray-border);
-  bbox-shadow: 0 4px 10px rgba(47, 92, 66, 0.12); /* soft evergreen tint */
+  box-shadow: 0 4px 10px rgba(47, 92, 66, 0.12); /* soft evergreen tint */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -126,12 +135,11 @@ nav a:hover {
   padding: 6rem 1rem 5rem;
   text-align: center;
   background: linear-gradient(
-  180deg,
-  var(--bg-light) 0%,
-  #E4EBE7 60%,
-  var(--bg-light) 100%
-);
-
+    180deg,
+    var(--bg-light) 0%,
+    #E4EBE7 60%,
+    var(--bg-light) 100%
+  );
 }
 .hero-content {
   max-width: 800px;
@@ -175,9 +183,9 @@ nav a:hover {
 .pillars {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  max-width: 1000px;
-  margin: 3rem auto;
+  gap: 2rem;
+  max-width: 1050px;
+  margin: 3.5rem auto;
   padding: 0 1rem;
   text-align: center;
 }
@@ -220,7 +228,6 @@ nav a:hover {
   margin: 4rem 0;
   box-shadow: var(--shadow);
   border-top: 4px solid var(--green-main);
-
 }
 .resource-grid {
   max-width: 1100px;
@@ -276,7 +283,7 @@ nav a:hover {
 
 /* --- Audio Section --- */
 .audio-section {
-  background: #ffffff;
+  background: var(--sage-surface);
   padding: 3rem 1rem;
   text-align: center;
 }
@@ -306,7 +313,6 @@ audio {
   box-shadow: var(--shadow);
   border-top: 4px solid var(--green-deep);
 }
-
 
 .recipe-source {
   text-align: center;
