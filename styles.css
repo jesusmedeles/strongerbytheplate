@@ -28,6 +28,7 @@
 
   --radius: 12px;
   --shadow: 0 6px 20px rgba(0,0,0,0.05);
+  --sage-surface: #E9F0EC;
 }
 
 
@@ -49,14 +50,20 @@ h1, h2, h3 {
   text-align: center;
 }
 h1 { font-size: clamp(28px, 5vw, 42px); }
-h2 { font-size: clamp(24px, 3.5vw, 32px); margin-bottom: .5em; }
+h2 {
+  font-size: clamp(26px, 3.5vw, 34px);
+  margin-bottom: 0.75em;
+  color: var(--green-deep);   /* deep evergreen */
+  letter-spacing: 0.5px;
+  font-weight: 700;           /* stronger heading weight */
+}
 h3 { font-size: 1.4rem; margin-bottom: .3em; }
 
 /* --- Header --- */
 header {
   background: var(--cream);
   border-bottom: 2px solid var(--gray-border);
-  box-shadow: var(--shadow);
+  bbox-shadow: 0 4px 10px rgba(47, 92, 66, 0.12); /* soft evergreen tint */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -118,7 +125,13 @@ nav a:hover {
 .hero {
   padding: 6rem 1rem 5rem;
   text-align: center;
-  background: var(--cream);
+  background: linear-gradient(
+  180deg,
+  var(--bg-light) 0%,
+  #E4EBE7 60%,
+  var(--bg-light) 100%
+);
+
 }
 .hero-content {
   max-width: 800px;
@@ -169,11 +182,11 @@ nav a:hover {
   text-align: center;
 }
 .pillar {
-  background: #ffffff;
+  background: var(--sage-surface);
   padding: 1.5rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  border-top: 4px solid var(--green-main);
+  border-top: 4px solid var(--green-deep);
 }
 
 /* --- Mission --- */
@@ -202,10 +215,12 @@ nav a:hover {
 
 /* --- Resources --- */
 .resources {
-  background: #ffffff;
+  background: var(--sage-surface);
   padding: 4rem 1rem;
   margin: 4rem 0;
   box-shadow: var(--shadow);
+  border-top: 4px solid var(--green-main);
+
 }
 .resource-grid {
   max-width: 1100px;
@@ -285,12 +300,13 @@ audio {
 .recipe-card {
   margin-top: 2rem;
   text-align: left;
-  background: #ffffff;
+  background: var(--sage-surface);
   border-radius: var(--radius);
   padding: 1.5rem;
   box-shadow: var(--shadow);
-  border-left: 4px solid var(--green-main);
+  border-top: 4px solid var(--green-deep);
 }
+
 
 .recipe-source {
   text-align: center;
@@ -305,10 +321,10 @@ audio {
 
 /* --- Footer --- */
 footer {
-  background: #ECFDF3;
+  background: linear-gradient(to top right, var(--green-dark), var(--green-deep));
   text-align: center;
   padding: 2rem 1rem;
-  border-top: 3px solid var(--green-deep);
+  border-top: 3px solid var(--green-main);
   font-size: 0.9rem;
-  color: var(--green-dark);
+  color: var(--cream);
 }
