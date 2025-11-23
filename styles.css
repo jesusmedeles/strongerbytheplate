@@ -8,12 +8,12 @@
 
 /* --- Design Tokens --- */
 :root {
-  /* New palette */
-  --bg-light: #F0FDF4;
-  --green-main: #10B981;
-  --green-light: #34D399;
-  --green-deep: #059669;
-  --green-dark: #065F46;
+  /* Deep sage / evergreen palette (Option C) */
+  --bg-light: #F3F7F2;      /* cool white-green */
+  --green-main: #4A7C59;    /* sage */
+  --green-light: #77A688;   /* herbal */
+  --green-deep: #2F5C42;    /* deep evergreen */
+  --green-dark: #1F3E2D;    /* very deep */
 
   /* Neutrals / text */
   --cream: var(--bg-light);
@@ -21,14 +21,15 @@
   --text-heading: #111827;
   --gray-border: #E5E7EB;
 
-  /* Reusing old “blue” variable names but now GREEN values */
+  /* Gradient + legacy “blue” vars (now green tones) */
   --blue-600: var(--green-deep);
   --blue-400: var(--green-light);
-  --gradient-blue: linear-gradient(90deg, #059669, #10B981);
+  --gradient-blue: linear-gradient(90deg, var(--green-deep), var(--green-main));
 
   --radius: 12px;
   --shadow: 0 6px 20px rgba(0,0,0,0.05);
 }
+
 
 /* --- Global Reset --- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
